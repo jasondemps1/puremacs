@@ -163,3 +163,10 @@ Avoid placing large files like EAF in `site-lisp` to prevent slow startup."
 (require 'init-style)
 (require 'init-highlight)
 (require 'init-org)
+
+(require 'init-edit)
+(require 'init-snippet)
+(require 'init-vcs)
+(require 'init-dap)
+
+
