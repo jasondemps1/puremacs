@@ -46,4 +46,4 @@
   (push '(ns-appearance . dark) default-frame-alist))
 
 ;; Prevent flash of unstyled mode line
-(setq-default mode-line-format nil)
+;; (setq-default mode-line-format nil)

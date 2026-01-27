@@ -4,3 +4,6 @@ eln-cache/
 history
 recentf
 places
+**/.#*
+**/~*
+tree-sitter/

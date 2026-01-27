@@ -1,8 +1,9 @@
+(global-set-key (kbd "M-o") 'other-window)
 
 (use-package windmove
   :ensure nil
   :hook (after-init . (lambda ()
-			(windmove-default-keybindings 'super))))
+			(windmove-default-keybindings)))) ;;'super))))
 
 (use-package ace-window)
 

@@ -1,3 +1,7 @@
+;;M-x subword-mode ; Minor mode treats CamelCase as distinct words
+;;M-x superword-mode ; Minor mode which treats snake_case as one word
+;;M-x glasses-mode ; Minor mode which visually (does not alter the buffer) separates CameCase into Camel_Case
+
 (use-package delsel
   :ensure nil
   :hook (after-init . delete-selection-mode))

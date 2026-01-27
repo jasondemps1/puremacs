@@ -159,6 +159,7 @@ Avoid placing large files like EAF in `site-lisp` to prevent slow startup."
 (require 'init-hydra)
 (require 'init-window)
 (require 'init-dired)
+(require 'init-kill-ring)
 
 (require 'init-style)
 (require 'init-highlight)
@@ -167,6 +168,7 @@ Avoid placing large files like EAF in `site-lisp` to prevent slow startup."
 (require 'init-edit)
 (require 'init-snippet)
 (require 'init-vcs)
+
 (require 'init-dap)
-
-
+(require 'init-c)
+(put 'scroll-left 'disabled nil)
