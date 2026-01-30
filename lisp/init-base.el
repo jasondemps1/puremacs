@@ -73,4 +73,10 @@
 	      tab-width 4
 	      indent-tabs-mode nil) ;; Permanently indent with spaces, never with tabs
 
+(use-package marginalia
+  :bind (:map minibuffer-local-map
+              ("M-A" . marginalia-cycle))
+  :init
+  (marginalia-mode))
+
 (provide 'init-base)

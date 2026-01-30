@@ -6,4 +6,6 @@ recentf
 places
 **/.#*
 **/~*
-tree-sitter/
+tree-sitter
+eshell/
+ido.last
