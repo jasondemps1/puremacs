@@ -171,7 +171,4 @@ Avoid placing large files like EAF in `site-lisp` to prevent slow startup."
 
 (require 'init-dap)
 (require 'init-c)
-(put 'scroll-left 'disabled nil)
-(put 'narrow-to-page 'disabled nil)
-(put 'upcase-region 'disabled nil)
-(put 'set-goal-column 'disabled nil)
+(require 'init-rust)
