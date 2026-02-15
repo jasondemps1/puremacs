@@ -6,7 +6,8 @@
   (set-frame-font "BlexMono Nerd Font Mono SemiBold 12" nil t)))
 
 ;;(print (font-family-list))
-
-(load-theme 'dracula t)
+(use-package dracula-theme
+  :init
+  (load-theme 'dracula t))
 
 (provide 'init-style)

@@ -41,6 +41,9 @@ Avoid placing large files like EAF in `site-lisp` to prevent slow startup."
 (advice-add #'package-initialize :after #'update-load-path)
 (advice-add #'package-initialize :after #'add-subdirs-to-load-path)
 
+(require 'use-package-ensure)
+(setq use-package-ensure t)
+
 ;; Initialize load paths explicitly
 (update-load-path)
 
