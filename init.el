@@ -73,6 +73,9 @@ Avoid placing large files like EAF in `site-lisp` to prevent slow startup."
   (require 'saveplace)
   (setq-default save-place t))
 
+;; Scrolling
+(setq-default pixel-scroll-precision-mode t
+              scroll-preserve-screen-position t)
 
 (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
 (electric-pair-mode 1)
