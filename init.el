@@ -178,3 +178,4 @@ Avoid placing large files like EAF in `site-lisp` to prevent slow startup."
 (require 'init-dap)
 (require 'init-c)
 (require 'init-rust)
+(require 'init-web)
