@@ -155,6 +155,10 @@ Avoid placing large files like EAF in `site-lisp` to prevent slow startup."
             (local-set-key (kbd "C-c C-c") #'eval-defun)
             (local-set-key (kbd "C-c C-b") #'eval-buffer)))
 
+
+(when (eq system-type 'darwin)
+  (setq insert-directory-program "/opt/homebrew/bin/gls"))
+
 (global-visual-line-mode t)
 
 (require 'init-custom)
