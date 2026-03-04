@@ -1,10 +1,5 @@
-
-;(add-hook 'rust-mode-hook 'eglot-ensure)
-                                        ;(add-hook 'rust-ts-mode-hook 'eglot-ensure)
-
-(use-package rust-ts-mode)
-
-(if (treesit-available-p)
+(if (and (treesit-available-p)
+         (treesit-language-available-p 'rust))
     (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode))
   (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode)))
 
@@ -51,6 +46,8 @@
   (corfu-auto-delay 0.2)
   (corfu-auto-prefix 2)
   (corfu-cycle t)
+  (corfu-auto-trigger ".")
+  (corfu-quit-no-match 'separator)
   :init
   (global-corfu-mode))
 
