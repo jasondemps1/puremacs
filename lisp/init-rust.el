@@ -1,6 +1,12 @@
 
 ;(add-hook 'rust-mode-hook 'eglot-ensure)
-;(add-hook 'rust-ts-mode-hook 'eglot-ensure)
+                                        ;(add-hook 'rust-ts-mode-hook 'eglot-ensure)
+
+(use-package rust-ts-mode)
+
+(if (treesit-available-p)
+    (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode))
+  (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode)))
 
 (use-package eglot
   :ensure nil
@@ -12,7 +18,8 @@
          ("C-c i r" . eglot-rename)
          ("C-c i m" . eglot-menu)
          ("C-c i f" . eglot-format-buffer)
-         ("C-c i h" . eglot-inlay-hints-mode))
+         ("C-c i h" . eglot-inlay-hints-mode)
+         ("C-c i c" . eglot-code-actions))
   :init
   (setq eglot-autoshutdown t
         eglot-confirm-server-edits nil
@@ -43,6 +50,7 @@
   (corfu-auto t)
   (corfu-auto-delay 0.2)
   (corfu-auto-prefix 2)
+  (corfu-cycle t)
   :init
   (global-corfu-mode))
 
