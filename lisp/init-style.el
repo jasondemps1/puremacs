@@ -5,7 +5,7 @@
  ((eq system-type 'gnu/linux)
   (set-frame-font "BlexMono Nerd Font Mono SemiBold 12" nil t))
  ((eq system-type 'darwin)
-  (set-frame-font "BlexMono Nerd Font Mono SemiBold 18" nil t)))
+  (set-frame-font "BlexMono Nerd Font Mono Bold 18" nil t)))
 
 ;;(print (font-family-list))
 (use-package dracula-theme

@@ -19,13 +19,18 @@
               gcmh-auto-idle-delay-factor 10
               gcmh-high-cons-threshold #x4000000)) ; 64MB
 
-(setq visible-bell t
-      inhibit-compacting-font-caches t
+(setq visible-bell nil
+      backup-directory-alist '(("." . "~/.emacs.d/backups/"))
       make-backup-files nil ; Forbid backup files
       auto-save-default nil ; Disable auto-save (may re-enable in future)
       delete-by-moving-to-trash t
       uniquify-buffer-name-style 'post-forward-angle-brackets
       word-wrap-by-category t)
+
+;; MacOS specific customizations
+(when (eq system-type 'darwin)
+  (setq insert-directory-program "gls")
+  (setq mac-command-modifier 'meta))
 
 ;; Asynchronous processing
 (use-package async
