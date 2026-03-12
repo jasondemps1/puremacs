@@ -29,7 +29,6 @@
 
 ;; MacOS specific customizations
 (when (eq system-type 'darwin)
-  (setq insert-directory-program "gls")
   (setq mac-command-modifier 'meta))
 
 ;; Asynchronous processing

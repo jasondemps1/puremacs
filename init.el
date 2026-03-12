@@ -160,7 +160,11 @@ Avoid placing large files like EAF in `site-lisp` to prevent slow startup."
   (setq insert-directory-program "/opt/homebrew/bin/gls"))
 
 (global-visual-line-mode t)
+(blink-cursor-mode nil)
+(repeat-mode 1)
+(file-name-shadow-mode 1)
 
+(require 'init-buffers)
 (require 'init-custom)
 (require 'init-funcs)
 
@@ -178,6 +182,7 @@ Avoid placing large files like EAF in `site-lisp` to prevent slow startup."
 (require 'init-edit)
 (require 'init-snippet)
 (require 'init-vcs)
+(require 'init-search)
 
 (require 'init-dap)
 (require 'init-c)

@@ -15,4 +15,11 @@
   ;; Show directories first
   (setq dired-listing-switches "-alh --group-directories-first"))
 
+(use-package wdired
+  :ensure nil
+  :commands (wdired-change-to-wdired-mode)
+  :config
+  (setq wdired-allow-to-change-permissions t)
+  (setq wdired-create-parent-directories t))
+
 (provide 'init-dired)
