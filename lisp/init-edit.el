@@ -36,5 +36,5 @@
 
 ;; KEYBINDS
 (global-set-key (kbd "M-j") 'duplicate-dwim)
-b
+
 (provide 'init-edit)
