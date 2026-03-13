@@ -34,4 +34,7 @@
               :map help-map
               ("C-;" . iedit-mode-toggle-on-fuction)))
 
+;; KEYBINDS
+(global-set-key (kbd "M-j") 'duplicate-dwim)
+b
 (provide 'init-edit)
