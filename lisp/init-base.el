@@ -80,7 +80,30 @@
 (use-package marginalia
   :bind (:map minibuffer-local-map
               ("M-A" . marginalia-cycle))
-  :init
-  (marginalia-mode))
+  :custom
+  (marginalia-align 'right)
+  :config
+  (marginalia-mode t))
+
+(use-package vertico
+  :demand t
+  :bind (:map minibuffer-local-map
+              ("<tab>" . vertico-next)
+              ("<backtab>" . vertico-previous))
+  :custom
+  (vertico-cycle t)
+  :config
+  (vertico-mode)
+  (vertico-reverse-mode t))
+
+(use-package consult
+  :bind (("M-g l" . consult-line)
+         ("M-g m" . consult-mark)
+         ("M-g r" . consult-ripgrep)
+         ("M-y" . consult-yank-pop)
+         ("C-x 4 b" . consult-buffer-other-window)
+         ("C-x t b" . consult-buffer-other-tab)
+         ([remap Info-search] . consult-info)
+         ([remap list-buffers] . ibuffer)))
 
 (provide 'init-base)

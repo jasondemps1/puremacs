@@ -87,35 +87,35 @@ Avoid placing large files like EAF in `site-lisp` to prevent slow startup."
 (when (fboundp 'global-completion-preview-mode)
   (global-completion-preview-mode 1))
 
-(if (fboundp 'fido-mode)
-    (progn
-      (fido-mode 1)
-      (when (fboundp 'fido-vertical-mode)
-        (fido-vertical-mode 1))
-
-      (defun fido-recentf-open ()
-        "Use `completing-read' to find a recent file."
-        (interactive)
-        (if (find-file (completing-read "Find recent file: " recentf-list))
-            (message "Opening file...")
-          (message "Aborting")))
-      (global-set-key (kbd "C-x C-r") 'fido-recentf-open))
-  (progn
-    (ido-mode 1)
-    (ido-everywhere 1)
-
-    (setq ido-use-virtual-buffers t
-          ido-use-filename-at-point 'guess
-          ido-create-new-buffer 'always
-          ido-enable-flex-matching t)
-
-    (defun ido-recentf-open ()
-      "Use `ido-completing-read' to find a recent file."
-      (interactive)
-      (if (find-file (ido-completing-read "Find recent file: " recentf-list))
-          (message "Opening file...")
-        (message "Aborting")))
-    (global-set-key (kbd "C-x C-r") 'ido-recentf-open)))
+;;(if (fboundp 'fido-mode)
+;;    (progn
+;;      (fido-mode 1)
+;;      (when (fboundp 'fido-vertical-mode)
+;;        (fido-vertical-mode 1))
+;;
+;;      (defun fido-recentf-open ()
+;;        "Use `completing-read' to find a recent file."
+;;        (interactive)
+;;        (if (find-file (completing-read "Find recent file: " recentf-list))
+;;            (message "Opening file...")
+;;          (message "Aborting")))
+;;      (global-set-key (kbd "C-x C-r") 'fido-recentf-open))
+;;  (progn
+;;    (ido-mode 1)
+;;    (ido-everywhere 1)
+;;
+;;    (setq ido-use-virtual-buffers t
+;;          ido-use-filename-at-point 'guess
+;;          ido-create-new-buffer 'always
+;;          ido-enable-flex-matching t)
+;;
+;;    (defun ido-recentf-open ()
+;;      "Use `ido-completing-read' to find a recent file."
+;;      (interactive)
+;;      (if (find-file (ido-completing-read "Find recent file: " recentf-list))
+;;          (message "Opening file...")
+;;        (message "Aborting")))
+;;    (global-set-key (kbd "C-x C-r") 'ido-recentf-open)))
 
 ;; Key Modifiers
 (cond
@@ -164,6 +164,14 @@ Avoid placing large files like EAF in `site-lisp` to prevent slow startup."
 (repeat-mode 1)
 (file-name-shadow-mode 1)
 
+(use-package emacs
+  :custom
+  (context-menu-mode t)
+  (enable-recursive-minibuffers t)
+  (read-extended-command-predicate #'command-completion-default-include-p)
+  (minibuffer-prompt-properties
+   '(read-only t cursor-intangible t face minibuffer-prompt)))
+
 (require 'init-buffers)
 (require 'init-custom)
 (require 'init-funcs)
@@ -184,6 +192,7 @@ Avoid placing large files like EAF in `site-lisp` to prevent slow startup."
 (require 'init-vcs)
 (require 'init-search)
 
+(require 'init-prog)
 (require 'init-dap)
 (require 'init-c)
 (require 'init-rust)

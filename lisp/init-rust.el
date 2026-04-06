@@ -5,8 +5,9 @@
 
 (use-package eglot
   :ensure nil
-  :hook ((rust-mode . eglot-ensure)
-         (rust-ts-mode . eglot-ensure)
+  :functions (eglot-ensure)
+  :commands (eglot)
+  :hook ((prog-mode . eglot-ensure)
          (before-save . eglot-format-buffer))
   :bind (("C-c i e" . eglot)
          ("C-c i i" . eglot-find-implementation)
@@ -39,30 +40,6 @@
   ;; Enable clippy
 ;;  (add-to-list 'eglot-server-programs
 ;;               '((rust-ts-mode rust-mode) . ("rust-analyzer" :initializationOptions (:check (:command "clippy"))))))
-
-(use-package corfu
-  :custom
-  (corfu-auto t)
-  (corfu-auto-delay 0.2)
-  (corfu-auto-prefix 2)
-  (corfu-cycle t)
-  (corfu-auto-trigger ".")
-  (corfu-quit-no-match 'separator)
-  :init
-  (global-corfu-mode))
-
-(use-package cape
-  :init
-  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
-  (add-to-list 'completion-at-point-functions #'cape-file))
-
-(use-package orderless
-  :ensure t
-  :custom
-  (completion-styles '(orderless basic))
-  (completion-category-overrides '((file (styles basic partial-completion))
-                                   (eglot (styles orderless))
-                                   (eglot-capf (styles orderless)))))
 
 (provide 'init-rust)
 
